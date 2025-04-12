@@ -201,5 +201,17 @@ a {
   .navbar {
     flex-direction: column;
     gap: 10px;
+    
+    /* Ensure all sections transition nicely */
+section {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* New class to hide a section dynamically */
+section.hide-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+}
+    
   }
 }
