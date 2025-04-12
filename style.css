@@ -1,10 +1,10 @@
 /* Global Styles */
 body {
-  margin: 0;
-  padding: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: #f5f9f5;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -201,17 +201,17 @@ a {
   .navbar {
     flex-direction: column;
     gap: 10px;
-    
-    /* Ensure all sections transition nicely */
+  }
+}
+
+/* New Dynamic Hide/Show Sections */
+/* Ensure all sections transition nicely */
 section {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* New class to hide a section dynamically */
+/* Class to hide sections when scrolling down */
 section.hide-on-scroll {
   opacity: 0;
   transform: translateY(20px);
-}
-    
-  }
 }
