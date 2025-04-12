@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Existing "animate on scroll" functionality
+  // Animate on scroll: Elements with the "animated" class
   const animatedElements = document.querySelectorAll('.animated');
   
   function checkVisibility() {
@@ -15,23 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkVisibility);
   checkVisibility();
 
-  // New: Dynamic hide/show sections based on scroll direction
+  // Navbar hide/show on scroll
   let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const sections = document.querySelectorAll('section');
-  
+  const navbar = document.querySelector('.navbar');
+
   window.addEventListener('scroll', function() {
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-      // Scrolling down: add the "hide-on-scroll" class to all sections
-      sections.forEach(section => {
-          section.classList.add('hide-on-scroll');
-      });
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // If scrolling down and past a certain threshold (e.g., 100px)
+    if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+      navbar.classList.add('hide');
     } else {
-      // Scrolling up: remove the "hide-on-scroll" class
-      sections.forEach(section => {
-          section.classList.remove('hide-on-scroll');
-      });
+      navbar.classList.remove('hide');
     }
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
   });
 });
