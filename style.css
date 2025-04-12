@@ -18,11 +18,13 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: top 0.3s ease-out;
 }
 .navbar {
   display: flex;
   justify-content: center;
   gap: 30px;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 .nav-link {
   color: #006400;
@@ -32,6 +34,12 @@ a {
 }
 .nav-link:hover {
   color: #228B22;
+}
+
+/* Hide navbar when scrolling down */
+.navbar.hide {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 /* Hero Section */
@@ -202,16 +210,4 @@ a {
     flex-direction: column;
     gap: 10px;
   }
-}
-
-/* New Dynamic Hide/Show Sections */
-/* Ensure all sections transition nicely */
-section {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Class to hide sections when scrolling down */
-section.hide-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
 }
