@@ -35,7 +35,6 @@ a {
 .nav-link:hover {
   color: #228B22;
 }
-
 /* Hide navbar when scrolling down */
 .navbar.hide {
   transform: translateY(-100%);
